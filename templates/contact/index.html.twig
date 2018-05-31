@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contacts Home{% endblock %}
+
+{#{% block body %}#}
+    {#<h1>Contact index</h1>#}
+
+    {#<table class="table">#}
+        {#<thead>#}
+            {#<tr>#}
+                {#<th>Id</th>#}
+                {#<th>FirstName</th>#}
+                {#<th>LastName</th>#}
+                {#<th>MobileNumber</th>#}
+                {#<th>EmailAddress</th>#}
+                {#<th>Title</th>#}
+                {#<th>actions</th>#}
+            {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+        {#{% for contact in contacts %}#}
+            {#<tr>#}
+                {#<td>{{ contact.id }}</td>#}
+                {#<td>{{ contact.firstName }}</td>#}
+                {#<td>{{ contact.lastName }}</td>#}
+                {#<td>{{ contact.mobileNumber }}</td>#}
+                {#<td>{{ contact.emailAddress }}</td>#}
+                {#<td>{{ contact.title }}</td>#}
+                {#<td>#}
+                    {#<a href="{{ path('contact_show', {'id': contact.id}) }}">show</a>#}
+                    {#<a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>#}
+                {#</td>#}
+            {#</tr>#}
+        {#{% else %}#}
+            {#<tr>#}
+                {#<td colspan="7">no records found</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#</tbody>#}
+    {#</table>#}
+
+    {#<a href="{{ path('contact_new') }}">Create new</a>#}
+{#{% endblock %}#}
+
+{% block body %}
+
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+            <div class="panel panel-default">
+                <div class="panel-heading">My contacts</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        {% for contact in contacts %}
+                            <li class="list-group-item"><a href="{{ path('contact_show', {'id': contact.id}) }}">{{ contact.title }} {{ contact.firstName }} {{  contact.lastName }}</a></li>
+                        {% else %}
+                            <li class="list-group-item">No contacts yet, <a href="{{ path('contact_new') }}">add a contact</a></li>
+                        {% endfor %}
+                    </ul>
+                    {% if contacts %}
+                        <a class="btn btn-primary" href="{{ path('contact_new') }}">Create new</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

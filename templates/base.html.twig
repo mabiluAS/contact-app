@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Cool contact list">
+    <meta name="author" content="">
+
+    <title>{% block title %}Cool Contact list!{% endblock %}</title>
+    {% block stylesheets %}
+    <!-- CSS -->
+    <link href="{{ asset('build/css/app.css') }}" rel="stylesheet">
+    {% endblock %}
+</head>
+
+<body>
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+     <h1 class="text-center"><span class="glyphicons glyphicons-address-book"></span>Contact List App</h1>
+</div>
+
+<div class="container">
+    {% block body %}{% endblock %}
+</div>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ asset('build/js/app.js') }}"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+</body>
+</html>
